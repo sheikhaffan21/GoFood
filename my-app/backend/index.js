@@ -7,10 +7,10 @@ const app = express()
 
 mongoDB()
 
-const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your frontend origin
-  optionsSuccessStatus: 200, // Some legacy browsers expect this
-};
+// const corsOptions = {
+//   origin: 'http://localhost:3000', // Replace with your frontend origin
+//   optionsSuccessStatus: 200, // Some legacy browsers expect this
+// };
 
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000")
@@ -20,7 +20,7 @@ app.use((req,res,next)=>{
   );
   next();
 })
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json())
 app.use('/api', require("./routes/CreateUser"));
